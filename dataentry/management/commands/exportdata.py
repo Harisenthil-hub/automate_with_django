@@ -8,7 +8,7 @@ class Command(BaseCommand):
     help = 'Export data from student table to CSV file'
     
     def add_arguments(self, parser):
-        parser.add_argument('model_name', type=str, help='Modal name')
+        parser.add_argument('model_name', type=str, help='Model name')
     
     
     def handle(self, *args, **kwargs):
@@ -25,7 +25,7 @@ class Command(BaseCommand):
                 continue
             
         if not model:
-            raise CommandError(f'Modal {model_name} could not be found')
+            raise CommandError(f'Model {model_name} could not be found')
         
         data = model.objects.all()
         

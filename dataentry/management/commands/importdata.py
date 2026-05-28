@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 # from dataentry.models import Student
 from django.apps import apps
+from django.db import DataError
 import csv
 
 # Proposed Command - python manage.py importdata file_path model_name
@@ -26,9 +27,18 @@ class Command(BaseCommand):
                 continue
             
         if not model:
-            raise CommandError(f'Modal "{model_name}" not found')
+            raise CommandError(f'Model "{model_name}" not found')
+        
+        
+        model_fields = [field.name for field in model._meta.fields if field.name != 'id']
+        # print(model_fields)
         with open(file_path, 'r') as file:
             reader = csv.DictReader(file)
+            csv_header = reader.fieldnames
+            # print(csv_header)
+            
+            if csv_header != model_fields:
+                raise DataError(f'CSV file doesn\'t match with the {model_name} table fields')
             for row in reader:
                 model.objects.create(**row)
         
