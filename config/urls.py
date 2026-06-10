@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import home, celery_test
+from .views import home, celery_test, register, login, logout
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -25,4 +25,8 @@ urlpatterns = [
     path('', home, name='home'),
     path('dataentry/', include('dataentry.urls')),
     path("celery-test/", celery_test),
+    path("register/", register, name='register'),
+    path("login/", login, name='login'),
+    path("logout/", logout, name='logout'),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

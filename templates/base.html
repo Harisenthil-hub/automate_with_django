@@ -20,11 +20,19 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">Automate with Django</a>
-            <div>
-                <a href="" class="float-right text-decoration-none text-dark">Login</a>
-                &nbsp;
-                <a href="" class="float-right btn btn-success">Register</a>
-            </div>
+
+            {% if user.is_authenticated %}
+                <div>
+                    Logged in as: <b>{{ user }}</b>
+                    &nbsp;<a href="{% url 'logout' %}" class="float-right btn btn-outline-danger">Logout</a>
+                </div>
+            {% else %}
+                <div>
+                    <a href="{% url "login" %}" class="float-right text-decoration-none text-dark">Login</a>
+                    &nbsp;
+                    <a href="{% url 'register' %}" class="float-right btn btn-success">Register</a>
+                </div>
+            {% endif %}
         </div>
     </nav>
 
@@ -33,5 +41,4 @@
     {% endblock %}
 
 </body>
-
 </html>
