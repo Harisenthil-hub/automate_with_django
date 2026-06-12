@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # installed apps
     'dataentry',
     'uploads',
+    'emails',
     
     #packages
     'crispy_forms',
