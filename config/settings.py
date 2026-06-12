@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     #packages
     'crispy_forms',
     'crispy_bootstrap5',
+    'ckeditor',
+    'anymail',
 ]
 
 MIDDLEWARE = [
@@ -165,10 +167,20 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
 DEFAULT_TO_EMAIL = os.getenv('DEFAULT_TO_EMAIL')
 
-
+# ANYMAIL = {
+#     "SENDINBLUE_API_KEY": os.getenv('SENDINBLUE_API_KEY')
+# }
 
 
 
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        # 'toolbar': 'full',
+        'height': 200,
+    }
+}
