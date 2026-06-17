@@ -14,7 +14,7 @@ def celery_test_task():
     mail_subject = 'Test subject'
     message = 'This is test email'
     to_email = settings.DEFAULT_TO_EMAIL
-    send_email_notification(mail_subject, message, to_mail)
+    send_email_notification(mail_subject, message, [to_email])
     return "Email sent successfully"
 
 
@@ -28,7 +28,7 @@ def import_data_task(full_path, model_name):
     mail_subject = 'Import Data Completed'
     message = 'Your data import has been successfull'
     to_email = settings.DEFAULT_TO_EMAIL
-    send_email_notification(mail_subject, message, to_email)
+    send_email_notification(mail_subject, message, [to_email])
     return "Data imported succesfully"
 
 
@@ -44,5 +44,5 @@ def export_data_task(model_name):
     mail_subject = 'Export Data Successful'
     message = 'Export data successfull. Please find the attachment'
     to_email = settings.DEFAULT_TO_EMAIL
-    send_email_notification(mail_subject, message, to_email, attachment=file_path)
+    send_email_notification(mail_subject, message, [to_email], attachment=file_path)
     return "Export data task executed  succesfully"
