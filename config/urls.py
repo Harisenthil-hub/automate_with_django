@@ -29,5 +29,6 @@ urlpatterns = [
     path("login/", login, name='login'),
     path("logout/", logout, name='logout'),
     path('emails/', include('emails.urls')),
+    path('image_compression/', include('image_compression.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

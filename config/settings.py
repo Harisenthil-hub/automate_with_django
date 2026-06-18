@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'dataentry',
     'uploads',
     'emails',
+    'image_compression',
     
     #packages
     'crispy_forms',
