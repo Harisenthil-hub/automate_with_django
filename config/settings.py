@@ -34,6 +34,13 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    
+    # packages
+    'dal',
+    'dal_alight',
+    'dal_select2',
+    
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +54,7 @@ INSTALLED_APPS = [
     'uploads',
     'emails',
     'image_compression',
+    'stockanalysis',
     
     #packages
     'crispy_forms',
